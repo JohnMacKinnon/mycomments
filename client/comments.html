@@ -1,0 +1,40 @@
+<head>
+  <title>Commenter1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  {{> page}}
+</body>
+
+<template name="page">
+	{{#if currentUser}}
+		<div class="span5">
+            <div style="float: right">
+              {{loginButtons align="right"}}
+            </div>
+         </div>
+		<div id="comments">
+			<div class="comment-container" id = "formcontainer">
+                <form id="addContactform" action="#">
+					<input id="pageurl" type="hidden" value="{{url}}">
+					<input id="user" type="hidden" value="{{user_id}}">
+					<input id="email" type="hidden" value="{{email}}">
+
+                    <textarea rows="6" cols="48" class = "win" id="addcommentfield" /></textarea></br>
+                    <button  class="addComm" id="add">Add a Comment</button>
+                </form>
+			</div>
+		</div>
+    </div>
+	{{else}}
+		<div class="error">You must be logged in to use this application!</div>
+			<div class="span5">
+				<div style="float: right">
+					{{loginButtons align="right"}}
+				</div>
+          </div>
+		</div>
+	{{/if}}
+ 
+</template>
